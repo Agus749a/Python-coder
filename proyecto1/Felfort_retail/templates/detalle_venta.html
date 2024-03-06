@@ -1,0 +1,54 @@
+{% extends "navbar.html"%}
+{% block estilos %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .total {
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<body>
+    <h1>Factura de Venta</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in productos_vendidos %}
+            <tr>
+                <td>{{ item.producto.Product_name }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.producto.Precio }}</td>
+                <td>{{ item.subtotal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Total de Venta: {{ total_venta }}</h2>
+</body>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "navbar.html" %}
+{% block content %}
+<body>
+    <h1>Realizar Venta</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="producto_id">ID del Producto:</label>
+        <input type="text" name="producto_id">
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" name="cantidad" min="1" value="1">
+        <input type="submit" value="Agregar Producto">
+        <input type="submit" name="finalizar_venta" value="Finalizar Venta">
+    </form>
+</body>
+{% endblock %}
