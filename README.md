@@ -6,31 +6,23 @@
 
 ## Clonar el Repositorio
 Clona este repositorio en tu máquina local utilizando el siguiente comando:
-git clone <URL del repositorio>
 
-python
-Copy code
+git clone <URL del repositorio>
 
 ## Instalar Dependencias
 Asegúrate de tener Python instalado en tu sistema. Luego, instala las dependencias del proyecto ejecutando:
-pip install -r requirements.txt
 
-python
-Copy code
+pip install -r requirements.txt
 
 ## Iniciar el Servidor
 Abre una terminal y navega hasta la carpeta del proyecto. Luego, ejecuta el siguiente comando para iniciar el servidor:
-python manage.py runserver
 
-css
-Copy code
+python manage.py runserver
 
 ## Acceder a la Aplicación
 Una vez que el servidor esté en funcionamiento, abre tu navegador web y accede a la siguiente URL:
-http://localhost:8000
 
-markdown
-Copy code
+http://localhost:8000
 
 ## Crear un Usuario e Iniciar Sesión
 Para acceder a todas las funcionalidades de la aplicación, primero debes crear un usuario. Dirígete a la página de registro y sigue las instrucciones para crear una cuenta. Después de crear tu cuenta, inicia sesión con tus credenciales.
