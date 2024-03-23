@@ -1,0 +1,59 @@
+{% extends "navbar.html"%}
+{% block estilos %}
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding: 20px;
+            }
+    
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            input[type="text"],
+            input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+    
+            input[type="submit"] {
+                width: 100%;
+                background-color: #007bff;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+        </style>
+{% endblock %}
+{% block content %}
+<form class=form method="post" action="{% url 'actualizar_pedido' pedido.id_factura %}">
+    {% csrf_token %}
+    <label for="nombre_cliente">Nombre del Cliente:</label>
+    <input type="text" id="nombre_cliente" name="nombre_cliente" value="{{ pedido.nombre_cliente }}"><br>
+
+    <label for="id_factura">ID de la Factura:</label>
+    <input type="number" id="id_factura" name="id_factura" value="{{ pedido.id_factura }}"><br>
+
+    <label for="Total">Total del pedido:</label>
+    <input type="number" id="Total" name="Total" value="{{ pedido.Total }}"><br>
+
+    <label for="Entregado">Entregado:</label>
+    <input type="bool" id="Entregado" name="Entregado" value="{{pedido.Entregado}}"><br>
+
+    <input type="submit" value="Actualizar">
+</form>
+{% endblock %}

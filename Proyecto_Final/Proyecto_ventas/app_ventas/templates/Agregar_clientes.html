@@ -1,0 +1,70 @@
+{% extends "navbar.html"%}
+{% block estilos %}
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding: 0;
+            }
+    
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            input[type="text"],
+            input[type="email"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+    
+            input[type="submit"] {
+                width: 100%;
+                background-color: #007bff;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+        </style>
+{% endblock %}
+{% block content %}
+<h1>Crear Cliente</h1>
+    <form class=form action="{% url 'Agregar_clientes' %}" method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        
+        <label for="calle">Calle:</label><br>
+        <input type="text" id="calle" name="calle"><br>
+        
+        <label for="razon_social">Razón Social:</label><br>
+        <input type="text" id="razon_social" name="razon_social"><br>
+        
+        <label for="numero_cel">Teléfono:</label><br>
+        <input type="text" id="numero_cel" name="numero_cel"><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        
+        <label for="cuit">CUIT:</label><br>
+        <input type="number" id="cuit" name="cuit"><br>
+
+        <label for="zona">Zona:</label><br>
+        <input type="text" id="zona" name="zona"><br>
+        
+        <input type="submit" value="Crear Cliente">
+    </form>
+    </body>
+{% endblock %}

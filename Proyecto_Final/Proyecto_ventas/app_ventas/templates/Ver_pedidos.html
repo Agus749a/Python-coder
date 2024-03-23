@@ -1,0 +1,106 @@
+{% extends "navbar.html"%}
+{% block estilos %}
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+.search-form {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.search-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+{% endblock %}
+{% block content %}
+<div class="cont form">
+    <form method="GET" class="search-form">
+        <input type="text" name="id_factura" placeholder="Buscar por Id factura" class="search-input">
+        <button type="submit" class="search-button">Buscar</button>
+    </form>
+</div>
+<h1>Pedidos</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>ID pedido</th>
+            <th>Total</th>
+            <th>Entregado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in pedidos %}
+        <tr>
+            <td>{{ pedido.nombre_cliente }}</td>
+            <td>{{ pedido.id_factura }}</td>
+            <td>{{ pedido.Total }}</td>
+            <td>{{ pedido.Entregado }}</td>
+            <td>
+                <a href="{% url 'actualizar_pedido' pedido.id_factura %}">Actualizar</a>
+                <form action="{% url 'borrar_pedido' pedido.id_factura %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="submit" value="Borrar">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
